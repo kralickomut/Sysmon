@@ -64,6 +64,8 @@ static void printOnce()
     qDebug().noquote() << "Processes:" << pt.processCount
                        << "| Threads:" << pt.threadCount;
 
+    qDebug().noquote() << "Core count:" << (cpu.cores.totalCores) << "Cores";
+
     qDebug() << "-----------------------------";
 }
 

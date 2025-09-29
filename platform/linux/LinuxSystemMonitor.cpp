@@ -4,8 +4,44 @@
 #include <string>
 #include <dirent.h>
 #include <unistd.h>
+#include <filesystem>
+#include <thread>
+#include <regex>
 #include <sys/types.h>
-#include <platform/mac/MacSystemMonitor.h>
+
+namespace fs = std::filesystem;
+
+// ----- CPU -----
+struct CpuLoad {
+    unsigned long long user=0, nice=0, system=0, idle=0;
+};
+
+static double readCpuTemperature() {
+    namespace fs = std::filesystem;
+
+    for (const auto& entry : fs::directory_iterator("/sys/class/hwmon")) {
+        std::ifstream nameFile(entry.path() / "name");
+        std::string chipName;
+        if (nameFile && std::getline(nameFile, chipName)) {
+            // Filter only CPU-related sensors
+            if (chipName.find("coretemp") != std::string::npos ||
+                chipName.find("k10temp") != std::string::npos ||
+                chipName.find("cpu") != std::string::npos)
+            {
+                // Many hwmon devices have multiple temp*_input
+                for (int i = 1; i < 10; ++i) {
+                    std::ifstream tempFile(entry.path() / ("temp" + std::to_string(i) + "_input"));
+                    if (tempFile) {
+                        long milliC;
+                        tempFile >> milliC;
+                        return milliC / 1000.0; // convert to Celsius
+                    }
+                }
+            }
+        }
+    }
+    return -1.0; // unavailable
+}
 
 // -------- CPU LOAD --------
 static CpuLoad readCpuLoad()
@@ -17,6 +53,70 @@ static CpuLoad readCpuLoad()
         file >> cpu >> load.user >> load.nice >> load.system >> load.idle;
     }
     return load;
+}
+
+static CpuCoresStats readLinuxCpuCores()
+{
+    CpuCoresStats stats;
+    double sumMhz = 0.0;
+    int count = 0;
+
+    // ---- 1) sysfs: /sys/devices/system/cpu/cpu*/cpufreq/scaling_cur_freq ----
+    const fs::path sysCpu = "/sys/devices/system/cpu";
+    std::regex cpuDirRe(R"(cpu(\d+))");
+    bool gotSysfs = false;
+
+    if (fs::exists(sysCpu) && fs::is_directory(sysCpu)) {
+        for (const auto& entry : fs::directory_iterator(sysCpu)) {
+            if (!entry.is_directory()) continue;
+            const std::string name = entry.path().filename().string();
+            std::smatch m;
+            if (!std::regex_match(name, m, cpuDirRe)) continue;
+
+            int coreId = std::stoi(m[1].str());
+            fs::path freqFile = entry.path() / "cpufreq" / "scaling_cur_freq";
+            if (!fs::exists(freqFile)) continue;
+
+            std::ifstream f(freqFile);
+            long long khz = 0;
+            if (f && (f >> khz) && khz > 0) {
+                double mhz = khz / 1000.0;
+                stats.coresMap[coreId] = mhz;
+                sumMhz += mhz;
+                ++count;
+                gotSysfs = true;
+            }
+        }
+    }
+
+    // ---- 2) fallback: /proc/cpuinfo -> “cpu MHz” lines (one per CPU) ----
+    if (!gotSysfs) {
+        std::ifstream ci("/proc/cpuinfo");
+        std::string line;
+        int coreId = 0;
+        while (std::getline(ci, line)) {
+            if (line.rfind("cpu MHz", 0) == 0) {
+                auto pos = line.find(':');
+                if (pos != std::string::npos) {
+                    double mhz = std::stod(line.substr(pos + 1));
+                    stats.coresMap[coreId++] = mhz;
+                    sumMhz += mhz;
+                    ++count;
+                }
+            }
+        }
+    }
+
+    // ---- 3) finalize / last-resort cores count ----
+    stats.totalCores = count;
+    stats.averageFreq = (count > 0) ? (sumMhz / count) : 0.0;
+
+    if (stats.totalCores == 0) {
+        // at least report core count even if freq unavailable
+        stats.totalCores = int(std::thread::hardware_concurrency());
+    }
+
+    return stats;
 }
 
 static double cpuPercent()
@@ -104,12 +204,16 @@ static ProcessThreadTotals readProcessThreadTotals()
 }
 
 
+
 // -------- Implementation --------
 CpuStats LinuxSystemMonitor::getCpuStats()
 {
     CpuStats cpu{};
     cpu.cpuUsage = cpuPercent();
+    cpu.cores = readLinuxCpuCores();
+    cpu.cpuClock = cpu.cores.averageFreq;
 
+    /*
     // For clock frequency, we can read from /proc/cpuinfo (first processor)
     std::ifstream file("/proc/cpuinfo");
     std::string line;
@@ -122,8 +226,8 @@ CpuStats LinuxSystemMonitor::getCpuStats()
             break;
         }
     }
-
-    cpu.cpuTemperature = -1; // Usually requires lm-sensors or /sys/class/thermal
+    */
+    cpu.cpuTemperature = readCpuTemperature(); // Usually requires lm-sensors or /sys/class/thermal
     return cpu;
 }
 

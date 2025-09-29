@@ -9,7 +9,10 @@
 #include <libproc.h>
 #include <platform/mac/MacSystemMonitor.h>
 
-
+// ----- CPU -----
+struct CpuLoad {
+    natural_t user = 0, system = 0, idle = 0, nice = 0;
+};
 
 static double cpuClock() {
     auto readUint64 = [](const char* name, uint64_t& out) -> bool {

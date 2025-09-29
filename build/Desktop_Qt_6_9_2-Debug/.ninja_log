@@ -1,0 +1,15 @@
+# ninja log v6
+1	674	1759136836128430509	CMakeFiles/statsTest.dir/main.cpp.o	934c7a5148e6991
+2	451	1759139797313933244	CMakeFiles/sysmon_core.dir/platform/linux/LinuxSystemMonitor.cpp.o	13fed1e8faa91d9e
+451	457	1759139797762933335	libsysmon_core.a	10eba744e54e0ca
+457	520	1759139797768933336	statsTest	cb1e664e559dacf4
+2	1485	1759140602890811661	CMakeFiles/sysmon_core.dir/platform/linux/LinuxSystemMonitor.cpp.o	13fed1e8faa91d9e
+1485	1511	1759140604373814358	libsysmon_core.a	10eba744e54e0ca
+1511	1599	1759140604399814405	statsTest	cb1e664e559dacf4
+7	1421	1759141713704788676	CMakeFiles/sysmon_core.dir/platform/linux/LinuxSystemMonitor.cpp.o	13fed1e8faa91d9e
+1421	1441	1759141715118772379	libsysmon_core.a	10eba744e54e0ca
+1441	1537	1759141715138772163	statsTest	cb1e664e559dacf4
+11	700	1759142158723160135	CMakeFiles/statsTest.dir/main.cpp.o	934c7a5148e6991
+700	793	1759142159412174222	statsTest	cb1e664e559dacf4
+3	704	1759142185894726913	CMakeFiles/statsTest.dir/main.cpp.o	934c7a5148e6991
+704	800	1759142186595741823	statsTest	cb1e664e559dacf4

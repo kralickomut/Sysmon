@@ -1,0 +1,8 @@
+/home/frantisek/Projects/sysmon/build/Desktop_Qt_6_9_2-Debug/CMakeFiles/sysmon_core.dir
+/home/frantisek/Projects/sysmon/build/Desktop_Qt_6_9_2-Debug/CMakeFiles/statsTest.dir
+/home/frantisek/Projects/sysmon/build/Desktop_Qt_6_9_2-Debug/CMakeFiles/edit_cache.dir
+/home/frantisek/Projects/sysmon/build/Desktop_Qt_6_9_2-Debug/CMakeFiles/rebuild_cache.dir
+/home/frantisek/Projects/sysmon/build/Desktop_Qt_6_9_2-Debug/CMakeFiles/list_install_components.dir
+/home/frantisek/Projects/sysmon/build/Desktop_Qt_6_9_2-Debug/CMakeFiles/install.dir
+/home/frantisek/Projects/sysmon/build/Desktop_Qt_6_9_2-Debug/CMakeFiles/install/local.dir
+/home/frantisek/Projects/sysmon/build/Desktop_Qt_6_9_2-Debug/CMakeFiles/install/strip.dir

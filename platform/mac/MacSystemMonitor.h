@@ -1,8 +1,9 @@
 #pragma once
-
-#include <mach/arm/vm_types.h>
 #include <core/ISystemMonitor.h>
 
+#ifdef __APPLE__
+#include <mach/arm/vm_types.h>
+#endif
 
 class MacSystemMonitor : public ISystemMonitor {
 public:
@@ -12,7 +13,4 @@ public:
     ProcessThreadTotals getProcessThreadCount() override;
 };
 
-// ----- CPU -----
-struct CpuLoad {
-    natural_t user = 0, system = 0, idle = 0, nice = 0;
-};
+
