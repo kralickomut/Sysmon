@@ -1,0 +1,8 @@
+/Users/frantisekhromek/QtProjects/statsTest/build/Qt_6_9_2_for_macOS-Debug/CMakeFiles/sysmon_core.dir
+/Users/frantisekhromek/QtProjects/statsTest/build/Qt_6_9_2_for_macOS-Debug/CMakeFiles/statsTest.dir
+/Users/frantisekhromek/QtProjects/statsTest/build/Qt_6_9_2_for_macOS-Debug/CMakeFiles/edit_cache.dir
+/Users/frantisekhromek/QtProjects/statsTest/build/Qt_6_9_2_for_macOS-Debug/CMakeFiles/rebuild_cache.dir
+/Users/frantisekhromek/QtProjects/statsTest/build/Qt_6_9_2_for_macOS-Debug/CMakeFiles/list_install_components.dir
+/Users/frantisekhromek/QtProjects/statsTest/build/Qt_6_9_2_for_macOS-Debug/CMakeFiles/install.dir
+/Users/frantisekhromek/QtProjects/statsTest/build/Qt_6_9_2_for_macOS-Debug/CMakeFiles/install/local.dir
+/Users/frantisekhromek/QtProjects/statsTest/build/Qt_6_9_2_for_macOS-Debug/CMakeFiles/install/strip.dir

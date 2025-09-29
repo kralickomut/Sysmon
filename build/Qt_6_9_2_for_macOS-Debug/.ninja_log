@@ -1,0 +1,22 @@
+# ninja log v6
+52	79	1758708821515605984	CMakeFiles/statsTest.dir/statsTest_autogen/mocs_compilation.cpp.o	8eb66c61591f0d87
+11	35	1758870452996173265	statsTest_autogen/mocs_compilation.cpp	25b5e6d243576ce1
+409	447	1758870453394417301	statsTest	6cc796614b584a25
+40	101	1758829296408116201	CMakeFiles/statsTest.dir/platform/win/WinSystemMonitoring.cpp.o	d5678605aa58f90e
+40	101	1758829296408012784	CMakeFiles/statsTest.dir/platform/mac/MacSystemMonitoring.cpp.o	af0df0ff7c5494a4
+40	692	1758829296407765951	CMakeFiles/statsTest.dir/main.cpp.o	e7cfc180875509eb
+11	35	1758870452996173265	statsTest_autogen/timestamp	25b5e6d243576ce1
+11	35	1758870452996173265	/Users/frantisekhromek/QtProjects/statsTest/build/Qt_6_9_2_for_macOS-Debug/statsTest_autogen/mocs_compilation.cpp	25b5e6d243576ce1
+11	35	1758870452996173265	/Users/frantisekhromek/QtProjects/statsTest/build/Qt_6_9_2_for_macOS-Debug/statsTest_autogen/timestamp	25b5e6d243576ce1
+35	409	1758870453020410552	CMakeFiles/statsTest.dir/platform/linux/LinuxSystemMonitoring.cpp.o	e03621fd2d7ac93e
+8	555	1758887455219015007	CMakeFiles/statsTest.dir/main.cpp.o	95a3e0cfe03ec9d3
+4	605	1758887856780545208	CMakeFiles/statsTest.dir/main.cpp.o	95a3e0cfe03ec9d3
+4	626	1758887856780290416	CMakeFiles/sysmon_core.dir/platform/mac/MacSystemMonitor.cpp.o	203c6d580edbeb52
+626	1982	1758887857401737404	libsysmon_core.a	9cc05a7e01908226
+1982	2485	1758887858758201733	statsTest	b10c6b813c8323c2
+7	572	1758887933571345219	CMakeFiles/statsTest.dir/main.cpp.o	95a3e0cfe03ec9d3
+7	590	1758887933570992093	CMakeFiles/sysmon_core.dir/platform/mac/MacSystemMonitor.cpp.o	203c6d580edbeb52
+590	619	1758887934154025406	libsysmon_core.a	9cc05a7e01908226
+619	650	1758887934182990184	statsTest	b10c6b813c8323c2
+6	534	1758888962114424095	CMakeFiles/statsTest.dir/main.cpp.o	95a3e0cfe03ec9d3
+534	570	1758888962643206152	statsTest	b10c6b813c8323c2

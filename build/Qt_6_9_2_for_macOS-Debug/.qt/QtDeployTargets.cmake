@@ -1,0 +1,4 @@
+set(__QT_DEPLOY_TARGET_sysmon_core_FILE /Users/frantisekhromek/QtProjects/statsTest/build/Qt_6_9_2_for_macOS-Debug/libsysmon_core.a)
+set(__QT_DEPLOY_TARGET_sysmon_core_TYPE STATIC_LIBRARY)
+set(__QT_DEPLOY_TARGET_statsTest_FILE /Users/frantisekhromek/QtProjects/statsTest/build/Qt_6_9_2_for_macOS-Debug/statsTest)
+set(__QT_DEPLOY_TARGET_statsTest_TYPE EXECUTABLE)

@@ -1,0 +1,70 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-39408e7a93ff7c233c92.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "statsTest",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "statsTest::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-statsTest-Debug-6a80f596d4051c9a7452.json",
+					"name" : "statsTest",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "sysmon_core::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-sysmon_core-Debug-839126cf621a8d6b7dd5.json",
+					"name" : "sysmon_core",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/frantisekhromek/QtProjects/statsTest/build/Qt_6_9_2_for_macOS-Debug",
+		"source" : "/Users/frantisekhromek/QtProjects/statsTest"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}
